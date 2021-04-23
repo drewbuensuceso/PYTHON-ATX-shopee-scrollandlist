@@ -13,7 +13,10 @@ def swipe_to_next():
 def get_item_data():
     for element in d(textContains='₱'):
         log.info(element.sibling(className='android.widget.TextView')[0].get_text())
-        if(element.sibling(className='android.widget.TextView')[2].exists(timeout=0.1)):
+        if(element.sibling(className='android.widget.TextView')[3].exists(timeout=0.1)):
+            log.info(element.sibling(className='android.widget.TextView')[2].get_text())
+            continue
+        elif(element.sibling(className='android.widget.TextView')[2].exists(timeout=0.1)):
             log.info(element.sibling(className='android.widget.TextView')[2].get_text())
         else:
             log.info(element.sibling(className='android.widget.TextView')[1].get_text())
